@@ -1,0 +1,146 @@
+
+# Transformers 教程
+
+## 总流程
+
+### 进度条工具 tqdm
+可以在输出的地方生成可视化进度条。使用方法：将for循环的range封装起来。
+
+### 加载模型数据
+通过 [魔塔社区](https://www.modelscope.cn/home) 下载模型与数据。
+
+### 模型 pipeline
+创建一个管道，将数据预处理，模型加载和输出处理组成一个流水线。
+
+- 本质上是对一个模型进行实例化。
+- 可以在线下载（需要vpn）:
+  ```python
+  summarizer = pipeline(task="summarization")
+  ```
+  下载官方默认的模型。
+- 也可以用本地的模型或者指定该任务的huggingface上的不同模型:
+  ```python
+  summarizer = pipeline('summarization', model='mypath/distilbart-cnn-12-6')
+  ```
+  使用本地模型记得 `trust_remote_code=True`。使用 `cache_dir` 可以指定缓存的目录。
+
+### 参数详解
+- 长度控制：`max_length` 最大长度（考虑了输入的整体）；`max_new_tokens` 最大生成长度（仅考虑生成的结果的长度）。
+- 解码策略：`do_sample` 启用采样的生成方式，`topk` 采样每次从前k个候选单词中随机选一个作为输出，核采样每次从n个概率加和为某个值的候选词元中随机抽取一个；`num_beams` 束搜索的束的个数。
+- 采样参数：`temperature` 低于1会倾向于采样概率高的值，高于1会倾向于采样概率低的值。`top_k` 即为topk采样，`top_p` 即为核采样。
+- `repetition_penalty` 惩罚项，降低词元重复出现的概率。
+
+### 调用
+```python
+pipe("直接输入文本")  # 即可返回结果
+```
+
+### 预加载模型和tokenizer再使用pipeline
+也可以分别指定模型和词元化（显然都得是一个系列的）。
+
+### 指定gpu进行推理任务
+指定形参 `device=0` 表示使用第0张显卡。
+
+### 【重点】确定pipeline的使用方法
+即实例的参数都是啥：输入实例名称根据提示找到类的名称。根据vscode找到类的定义，查看模型的使用方法（查看 `__call__` 方法）或直接查看文档。
+
+### tokenizer
+全自动的分词器，包括分词、词元向量化、text转为向量、数据填充。
+
+- 加载使用 `AutoTokenizer` 类。
+- 保存下来tokenizer：
+  ```python
+  tokenizer.save_pretrained("./roberta_tokenizer")
+  ```
+- 查看词典：`tokenizer.vocab`（有可能有 `#`，表示的是字词，很多词由子词构成以缩小词表大小）。
+- 索引转换：
+  ```python
+  ids = tokenizer.convert_tokens_to_ids(tokens)
+  tokens = tokenizer.convert_ids_to_tokens(ids)
+  ```
+- 快速索引转换：
+  ```python
+  ids = tokenizer.encode(sen, add_special_tokens=True)  # （会自动添加cls和sep）
+  ```
+- 解码：
+  ```python
+  str_sen = tokenizer.decode(ids, skip_special_tokens=False)  # 输入为可迭代
+  ```
+
+### 填充和截断
+```python
+ids = tokenizer.encode(sen, padding="max_length", max_length=15)
+ids = tokenizer.encode(sen, max_length=5, truncation=True)  # 截断时还保留cls和sep因此有效长度为3
+```
+
+### 返回valid_len和segment
+直接调用tokenizer即可返回一个包含tokens、segment、valid_len的字典。要求pad和截断同时进行。`return_tensors='pt'` 将返回的数据指定为pytorch的tensor。
+
+### tokenized_ds.sequence_ids(idx)
+返回每个句子的标记。其中特殊token被none标记。
+
+### 【命名实体识别】
+返回编码后每一个token属于原句子中的第几个词 `res.word_ids()`。该功能在命名实体识别中有很大作用。
+
+### 【token分类】【机器问答（片段抽取式）】【概念提取】
+设置tokenizer的 `return_offset_mapping = True` 可以返回一个offset_mapping。其中表示原句中的字符对应的tokens。
+
+### 模型
+- 量化前应评估模型的敏感性。
+- 启用半精度训练、8bit训练、4bit训练等。
+
+### 保存
+模型可以直接使用 `PreTrainedModel.save_pretrained()` 进行保存，使用 `PreTrainedModel.from_pretrained()` 重新加载预训练模型。
+
+### 带model_head的模型调用
+例如文本分类任务，使用 `AutoModelForSequenceClassification`。
+
+### 查看模型的参数
+`model.config`。
+
+### 损失计算
+训练时，loss已经包含在输出中了，因此直接 `output.loss.backward()`。
+
+### 应用transformers进行训练的一个例子
+其中model是一个聚合体，甚至接受label输出loss，不需要你再去计算了。
+
+### 预测
+```python
+pipe = pipeline("text-classification", model=model, tokenizer=tokenizer, device=0)
+```
+
+### AutoModelFor分支
+包括文本分类、相似度匹配、文本摘要、token分类、机器问答、命名实体识别、多项选择等。
+
+### 数据集加载
+使用 `datasets.load_dataset()` 加载数据集。
+
+### 数据的选取和过滤
+使用 `dataset.select` 和 `dataset.filter`。
+
+### 数据划分
+使用 `dataset.train_test_split()`。
+
+### 数据映射
+将数据映射函数应用到dataset中。
+
+### DataCollator分支
+包括 `DataCollatorWithPadding`、`DataCollatorForSeq2Seq`、`DataCollatorForLanguageModeling`、`DataCollatorForTokenClassification`、`DefaultDataCollator` 等。
+
+### 模型评估
+使用 `evaluate` 模块。
+
+### 训练
+使用 `Trainer` 和 `TrainingArguments`。
+
+### 参数高效微调
+使用 `peft` 模块。
+
+### 显存节省
+包括梯度累加、梯度检查、优化器、冻结参数、缩减data_len 等方案。
+
+### 坑
+包括对特定模型的注意事项和解决方案。
+
+### 切记
+text splitter要指定分割字符，否则长度过长导致embedding报错。

@@ -5,6 +5,8 @@
   "applications": "提示应用",
   "prompts": "Prompt Hub",
   "models": "模型",
+  "finetune":"模型微调",
+  "agentEntity":"异构计算智能实体",
   "risks": "风险和误用",
   "research": "LLM Research Findings",
   "papers": "论文",

@@ -5,10 +5,15 @@ In this section, we cover the latest prompt engineering techniques for ChatGPT, 
 **Note that this section is under heavy development.**
 
 Topics:
-- [ChatGPT Introduction](#chatgpt-introduction)
-- [Reviewing The Conversation Task](#reviewing-the-conversation-task)
-- [Conversations with ChatGPT](#conversations-with-chatgpt)
-- [Python Notebooks](#python-notebooks)
+- [ChatGPT Prompt Engineering](#chatgpt-prompt-engineering)
+  - [ChatGPT Introduction](#chatgpt-introduction)
+  - [Reviewing The Conversation Task](#reviewing-the-conversation-task)
+  - [Conversations with ChatGPT](#conversations-with-chatgpt)
+    - [Multi-turn Conversations](#multi-turn-conversations)
+    - [Single-turn tasks](#single-turn-tasks)
+    - [Instructing Chat Models](#instructing-chat-models)
+  - [Python Notebooks](#python-notebooks)
+  - [References](#references)
 
 ---
 ## ChatGPT Introduction
@@ -22,7 +27,7 @@ You can use the research preview of ChatGPT [here](https://chat.openai.com) but 
 ---
 ## Reviewing The Conversation Task
 
-In one of the [previous guides](https://github.com/dair-ai/Prompt-Engineering-Guide/blob/main/guides/prompts-basic-usage.md#conversation), we covered a bit about conversation capabilities and role prompting. We covered how to instruct the LLM to have a conversation in a specific style, with a specific intent, behavior, and identity.
+In one of the [previous guides](https://github.com/AdamLeeN/Prompt-Engineering-Guide/blob/main/guides/prompts-basic-usage.md#conversation), we covered a bit about conversation capabilities and role prompting. We covered how to instruct the LLM to have a conversation in a specific style, with a specific intent, behavior, and identity.
 
 Let's review our previous basic example where we created a conversational system that's able to generate more technical and scientific responses to questions. 
 

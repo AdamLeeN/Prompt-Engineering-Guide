@@ -12,7 +12,7 @@ const config: DocsThemeConfig = {
         <circle cx="166" cy="120" r="40" fill="currentColor"/>
       </svg>
       <span style={{ marginLeft: '.4em', fontWeight: 800 }}>
-        Prompt Engineering Guide
+        大模型学习指南
       </span>
     </>
   ),
@@ -24,13 +24,13 @@ const config: DocsThemeConfig = {
     const { title } = useConfig()
     return (
     <>
-      <title>{title ? title + ' | Prompt Engineering Guide': 'Prompt Engineering Guide'} </title>
+      <title>{title ? title + ' | 大模型学习指南': '大模型学习指南'} </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta property="og:title" content="Prompt Engineering Guide" />
+      <meta property="og:title" content="大模型学习指南" />
       <meta property="og:description" content="A Comprehensive Overview of Prompt Engineering" />
       <meta
           name="og:title"
-          content={title ? title + ' | Prompt Engineering Guide' : 'Prompt Engineering Guide'}
+          content={title ? title + ' | 大模型学习指南' : '大模型学习指南'}
         />
       <link rel="icon" href="/144-favicon.svg" type="image/svg+xml" />
 
@@ -43,17 +43,17 @@ const config: DocsThemeConfig = {
     </>
   )},
   // project: {
-  //   link: 'https://github.com/dair-ai/Prompt-Engineering-Guide',
+  //   link: 'https://github.com/AdamLeeN/Prompt-Engineering-Guide',
   // },
   // chat: {
   //   link: 'https://discord.gg/FUyz9vPAwf',
   // },
-  docsRepositoryBase: 'https://github.com/dair-ai/Prompt-Engineering-Guide/tree/main/',
+  docsRepositoryBase: 'https://github.com/AdamLeeN/Prompt-Engineering-Guide/tree/main/',
   footer: {
-    text: 'Copyright © 2024 DAIR.AI',
+    text: 'Copyright © 2024 ',
   },
   search: {
-    placeholder: 'Search...',
+    placeholder: '搜索...',
   },
   components: {
     pre: Pre,

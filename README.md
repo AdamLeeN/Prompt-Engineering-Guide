@@ -1,25 +1,25 @@
-# Prompt Engineering Guide
+# 大模型学习指南
 
 Prompt engineering is a relatively new discipline for developing and optimizing prompts to efficiently use language models (LMs) for a wide variety of applications and research topics. Prompt engineering skills help to better understand the capabilities and limitations of large language models (LLMs). Researchers use prompt engineering to improve the capacity of LLMs on a wide range of common and complex tasks such as question answering and arithmetic reasoning. Developers use prompt engineering to design robust and effective prompting techniques that interface with LLMs and other tools.
 
-Motivated by the high interest in developing with LLMs, we have created this new prompt engineering guide that contains all the latest papers, learning guides, lectures, references, and tools related to prompt engineering for LLMs.
+Motivated by the high interest in developing with LLMs, we have created this new 大模型学习指南 that contains all the latest papers, learning guides, lectures, references, and tools related to prompt engineering for LLMs.
 
-🌐 [Prompt Engineering Guide (Web Version)](https://www.promptingguide.ai/)
+🌐 [大模型学习指南 (Web Version)](https://www.promptingguide.ai/)
 
 📺 [YouTube Mini Lectures on Prompting Engineering](https://www.youtube.com/playlist?list=PLGSHbNsNO4Vha1jB0wMtuYYEVO4laSo0m)
 
 We've partnered with Maven to deliver the following live cohort-based courses on prompt engineering:
 
-- [LLMs for Everyone ](https://maven.com/dair-ai/llms-for-everyone) (Beginner) - learn about the latest prompt engineering techniques and how to effectively apply them to real-world use cases.
+- [LLMs for Everyone ](https://maven.com/AdamLeeN/llms-for-everyone) (Beginner) - learn about the latest prompt engineering techniques and how to effectively apply them to real-world use cases.
 
-- [Prompt Engineering for LLMs ](https://maven.com/dair-ai/prompt-engineering-llms) (Advanced) - learn advanced prompt engineering techniques to build complex use cases and applications with LLMs.
+- [Prompt Engineering for LLMs ](https://maven.com/AdamLeeN/prompt-engineering-llms) (Advanced) - learn advanced prompt engineering techniques to build complex use cases and applications with LLMs.
 
 Happy Prompting!
 
 ---
 ## Announcements / Updates
 
-- 🎓 New course on Prompt Engineering for LLMs announced! [Enroll here](https://maven.com/dair-ai/prompt-engineering-llms)!
+- 🎓 New course on Prompt Engineering for LLMs announced! [Enroll here](https://maven.com/AdamLeeN/prompt-engineering-llms)!
 - 💼 We now offer several [services](https://www.promptingguide.ai/services) like corporate training, consulting, and talks.
 - 🌐 We now support 13 languages! Welcoming more translations.
 - 👩‍🎓 We crossed 3 million learners in January 2024!
@@ -115,8 +115,8 @@ You can also find the most up-to-date guides on our new website [https://www.pro
 
 We have published a 1 hour lecture that provides a comprehensive overview of prompting techniques, applications, and tools.
 - [Video Lecture](https://youtu.be/dOxUroR57xs)
-- [Notebook with code](https://github.com/dair-ai/Prompt-Engineering-Guide/blob/main/notebooks/pe-lecture.ipynb)
-- [Slides](https://github.com/dair-ai/Prompt-Engineering-Guide/blob/main/lecture/Prompt-Engineering-Lecture-Elvis.pdf)
+- [Notebook with code](https://github.com/AdamLeeN/Prompt-Engineering-Guide/blob/main/notebooks/pe-lecture.ipynb)
+- [Slides](https://github.com/AdamLeeN/Prompt-Engineering-Guide/blob/main/lecture/Prompt-Engineering-Lecture-Elvis.pdf)
 
 ---
 ## Running the guide locally
@@ -143,16 +143,16 @@ If you are using the guide for your work or research, please cite us as follows:
 ```
 @article{Saravia_Prompt_Engineering_Guide_2022,
 author = {Saravia, Elvis},
-journal = {https://github.com/dair-ai/Prompt-Engineering-Guide},
+journal = {https://github.com/AdamLeeN/Prompt-Engineering-Guide},
 month = {12},
-title = {{Prompt Engineering Guide}},
+title = {{大模型学习指南}},
 year = {2022}
 }
 ```
 
 ## License
 
-[MIT License](https://github.com/dair-ai/Prompt-Engineering-Guide/blob/main/LICENSE.md)
+[MIT License](https://github.com/AdamLeeN/Prompt-Engineering-Guide/blob/main/LICENSE.md)
 
 
 Feel free to open a PR if you think something is missing here. Always welcome feedback and suggestions. Just open an issue!
