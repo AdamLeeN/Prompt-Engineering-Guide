@@ -12,14 +12,7 @@
   "notebooks": "Notebooks",
   "datasets": "Datensätze",
   "readings": "Zusatzlektüre",
-  "course":{
-    "title": "Prompt Engineering Kurs",
-    "type": "page"
-  },
-  "services": {
-    "title": "Services",
-    "type": "page"
-  },
+
   "about": {
     "title": "Über",
     "type": "page"
