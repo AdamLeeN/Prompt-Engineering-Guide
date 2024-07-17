@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Saravia"
+  given-names: "Elvis"
+title: "大模型学习指南"
+date-released: 2022-12-16
+url: "https://github.com/AdamLeeN/Prompt-Engineering-Guide"
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Saravia"
+    given-names: "Elvis"
+  month: 12
+  journal: "https://github.com/AdamLeeN/Prompt-Engineering-Guide"
+  title: "大模型学习指南"
+  year: 2022
