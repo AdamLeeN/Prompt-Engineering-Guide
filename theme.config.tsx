@@ -24,13 +24,13 @@ const config: DocsThemeConfig = {
     const { title } = useConfig()
     return (
     <>
-      <title>{title ? title + ' | 大模型学习指南': '大模型学习指南'} </title>
+      <title>{title ? title + ' | 智革科技': '智革科技'} </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta property="og:title" content="大模型学习指南" />
       <meta property="og:description" content="A Comprehensive Overview of Prompt Engineering" />
       <meta
           name="og:title"
-          content={title ? title + ' | 大模型学习指南' : '大模型学习指南'}
+          content={title ? title + ' | 智革科技' : '智革科技'}
         />
       <link rel="icon" href="/144-favicon.svg" type="image/svg+xml" />
 
@@ -50,7 +50,11 @@ const config: DocsThemeConfig = {
   // },
   docsRepositoryBase: 'https://github.com/AdamLeeN/Prompt-Engineering-Guide/tree/main/',
   footer: {
-    text: 'Copyright © 2024 ',
+    text: (
+      <>
+        Copyright © 2024 <a href="https://beian.miit.gov.cn/" target="_blank">备案号:</a> <a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备2023008515号-2</a>
+      </>
+    )
   },
   search: {
     placeholder: '搜索...',
